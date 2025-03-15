@@ -66,3 +66,6 @@ def test_fill_in_form(maximize_browser):
         "John Doe", "johndoe@example.com", "Male", "1234567890", "01 January,1970", "Computer Science",
         "Sports, Reading, Music", "kitty.jpg", "Connaught Place", "NCR Delhi"
     ]))
+
+    # Проверить, что кнопка закрытия модального окна кликабельна
+    browser.element("#closeLargeModal").should(be.clickable)
