@@ -1,5 +1,4 @@
 import os.path
-
 from selene import browser, be, have, command
 
 
@@ -61,3 +60,9 @@ def test_fill_in_form(maximize_browser):
 
     # Проверить, что форма отправлена
     browser.element("#example-modal-sizes-title-lg").should(have.text("Thanks for submitting the form"))
+
+    # Проверить, что данные в таблице совпадают с введенными
+    browser.all("tbody tr td:nth-child(2)").should(have.texts([
+        "John Doe", "johndoe@example.com", "Male", "1234567890", "01 January,1970", "Computer Science",
+        "Sports, Reading, Music", "kitty.jpg", "Connaught Place", "NCR Delhi"
+    ]))
